@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_homepage_goods_info_bj"
+    android:id="@+id/adapter_homepage_tuijian_RelativeLayout"
+    android:padding="@dimen/dp_10">
+    
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/adapter_homepage_tuijian_SimpleDraweeView"
+        android:layout_width="@dimen/dp_169"
+        android:layout_height="@dimen/dp_140"
+        fresco:roundedCornerRadius="@dimen/dp_10"
+        />
+    <TextView
+        android:id="@+id/adapter_homepage_tuijian_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="姓名"
+        android:textColor="#333"
+        android:layout_below="@+id/adapter_homepage_tuijian_SimpleDraweeView"
+        android:maxLength="16"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+    <TextView
+        android:id="@+id/adapter_homepage_tuijian_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="价格"
+        android:textColor="#AAAAAA"
+        android:textSize="@dimen/dp_11"
+        android:layout_below="@id/adapter_homepage_tuijian_name"
+        android:layout_marginTop="@dimen/dp_10"/>
+    <TextView
+        android:id="@+id/adapter_homepage_tuijian_price_old"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="价格"
+        android:textColor="#DF2E24"
+        android:textSize="@dimen/dp_14"
+        android:layout_below="@id/adapter_homepage_tuijian_price"
+        android:layout_marginTop="@dimen/dp_3"/>
+    <TextView
+        android:id="@+id/adapter_homepage_tuijian_shouhou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已售"
+        android:textColor="#999999"
+        android:textSize="@dimen/dp_11"
+        android:layout_below="@id/adapter_homepage_tuijian_price"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_5"/>
+
+
+</RelativeLayout>
