@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ShoppingFragment shoppingFragment;
     private MyFragment myFragment;
 
+    ///
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
