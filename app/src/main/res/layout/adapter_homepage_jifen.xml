@@ -6,6 +6,7 @@
     android:background="#fff"
     >
 <LinearLayout
+    android:id="@+id/adapter_homepage_jifen_LinearLayout"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">

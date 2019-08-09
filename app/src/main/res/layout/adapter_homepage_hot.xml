@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/adapter_homepage_hot_RelativeLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_10">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:id="@+id/adapter_homepage_hot_SimpleDraweeView"/>
+    <TextView
+        android:id="@+id/adapter_homepage_hot_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="姓名"
+        android:layout_toRightOf="@+id/adapter_homepage_hot_SimpleDraweeView"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:textSize="@dimen/dp_14"
+        android:textColor="#111111"/>
+    <TextView
+        android:id="@+id/adapter_homepage_hot_pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="购买人"
+        android:layout_toRightOf="@+id/adapter_homepage_hot_SimpleDraweeView"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_below="@id/adapter_homepage_hot_name"
+        android:textColor="#999999"/>
+    <TextView
+        android:id="@+id/adapter_homepage_hot_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="价钱"
+        android:layout_toRightOf="@+id/adapter_homepage_hot_SimpleDraweeView"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_below="@id/adapter_homepage_hot_pop"
+        android:textSize="@dimen/dp_18"
+        android:textColor="#DF2E24"/>
+    <TextView
+        android:id="@+id/adapter_homepage_hot_priceold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="原价"
+        android:textSize="@dimen/dp_10"
+        android:layout_toRightOf="@+id/adapter_homepage_hot_price"
+        android:layout_below="@id/adapter_homepage_hot_pop"
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginLeft="@dimen/dp_10"/>
+</RelativeLayout>

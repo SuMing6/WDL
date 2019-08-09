@@ -49,13 +49,13 @@ public class HomePagetuijAdapter extends RecyclerView.Adapter<HomePagetuijAdapte
         holder.price_old.setText("￥"+shop_price);
         holder.price.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
 
-        /*//点击事件
+        //点击事件
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setOnClickItem.onGreat(goodslist.get(position).getId());
             }
-        });*/
+        });
     }
 
     @Override

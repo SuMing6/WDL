@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wdl.myapplication.R;
 import com.wdl.myapplication.bean.HomePageGoodsInfoBean;
+import com.wdl.myapplication.data.Port;
 import com.wdl.myapplication.view.HomepageGoodsInfoActivity;
 
 import java.util.ArrayList;
@@ -21,11 +22,6 @@ import java.util.List;
 public class HomepageGoodsInfoAdapter extends RecyclerView.Adapter<HomepageGoodsInfoAdapter.holder> {
     private final Context context;
     private final HomePageGoodsInfoBean string;
-
-
-    List<String> stringe = new ArrayList<String>();
-
-    List<String> strings = new ArrayList<String>();
 
     public HomepageGoodsInfoAdapter(Context context, HomePageGoodsInfoBean string) {
         this.context = context ;
@@ -41,22 +37,15 @@ public class HomepageGoodsInfoAdapter extends RecyclerView.Adapter<HomepageGoods
 
     @Override
     public void onBindViewHolder(@NonNull HomepageGoodsInfoAdapter.holder holder, int position) {
-        //Log.e("啊实打实d",string+"");
-        String base_url = string.getBase_url();
-        //采取最后一个斜杠
-        String substring = base_url.substring(0, base_url.length() - 1);
-        strings.addAll(string.getInfo().getDetail());
-        for (int i = 0; i < string.getInfo().getDetail().size(); i++) {
-            stringe.add(substring+strings.get(i));
-        }
-        Log.e("啊实打实d",stringe.toString());
 
-        holder.simpleDraweeView.setImageURI(stringe.get(position));
+
+
+        holder.simpleDraweeView.setImageURI(string.getData().getPics().get(position));
     }
 
     @Override
     public int getItemCount() {
-        return string.getInfo().getDetail().size();
+        return string.getData().getPics().size();
     }
 
     class holder extends RecyclerView.ViewHolder {

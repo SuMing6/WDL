@@ -15,12 +15,11 @@
             android:id="@+id/homepage_SYS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="扫一扫"/>
-        <TextView
-            android:id="@+id/homepage_SYSj"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="结果"/>
+            android:text="扫一扫"
+            android:textColor="#fff"
+            android:padding="@dimen/dp_10"
+            android:background="@drawable/shape_homepage_goods_info_timew"
+            android:layout_marginLeft="@dimen/dp_14"/>
         <EditText
             android:id="@+id/homepage_EditText"
             android:layout_width="match_parent"
@@ -42,6 +41,7 @@
         android:layout_height="match_parent"
         android:background="#eee">
         <LinearLayout
+            android:id="@+id/homepage_LinearLayout"
             android:background="#F7F7F7"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -52,8 +52,8 @@
                 android:id="@+id/homepage_Banner"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_158"
-                android:paddingLeft="@dimen/dp_14"
-                android:paddingRight="@dimen/dp_14"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_marginRight="@dimen/dp_14"
                 android:background="#fff"></com.youth.banner.Banner>
 
             <LinearLayout
@@ -70,85 +70,90 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center">
                     <ImageView
                         android:id="@+id/homepage_ImageView_one"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@mipmap/table_homepage_page_one"
+                        android:background="@mipmap/homepage_promotion"
                         />
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="每日上新"
+                        android:text="促销专区"
                         android:layout_below="@id/homepage_ImageView_one"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center">
                     <ImageView
                         android:id="@+id/homepage_ImageView_two"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@mipmap/table_homepage_page_two"
+                        android:background="@mipmap/homepage_hilarity"
                         />
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="特价专区"
+                        android:text="购物狂欢"
                         android:layout_below="@id/homepage_ImageView_two"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center">
                     <ImageView
                         android:id="@+id/homepage_ImageView_three"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@mipmap/table_homepage_page_three"
+                        android:background="@mipmap/homepage_heartbeat"
                         />
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="精品推荐"
+                        android:text="心动商品"
                         android:layout_below="@id/homepage_ImageView_three"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center">
                     <ImageView
                         android:id="@+id/homepage_ImageView_four"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@mipmap/table_homepage_page_four"
+                        android:background="@mipmap/homepage_jrmh"
                         />
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="名品配饰"
+                        android:text="金瑞明华"
                         android:layout_below="@id/homepage_ImageView_four"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center">
                     <ImageView
                         android:id="@+id/homepage_ImageView_five"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@mipmap/table_homepage_page_five"
+                        android:background="@mipmap/homepage_lasttime"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="积分兑换"
+                        android:text="限时抢购"
                         android:layout_below="@id/homepage_ImageView_five"/>
                 </RelativeLayout>
             </LinearLayout>
@@ -194,10 +199,62 @@
                     android:layout_marginBottom="@dimen/dp_5"
                     android:paddingLeft="@dimen/dp_14"></android.support.v7.widget.RecyclerView>
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_14"
+                android:layout_marginRight="@dimen/dp_14"
+                android:background="@drawable/shape_homepage_goods_info_bj"
+                >
+                <TextView
+                    android:id="@+id/table_homepage_page_hot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="热卖榜单"
+                    android:textColor="#333333"
+                    android:layout_marginLeft="@dimen/dp_14"
+                    android:textSize="@dimen/dp_18"
+                    android:layout_marginTop="@dimen/dp_5"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_9"
+                    android:layout_toLeftOf="@+id/table_homepage_page_goto"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@drawable/shape_homepage_goods_info_timew"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:paddingRight="@dimen/dp_10"
+                    android:text="限时好价"
+                    android:textColor="#fff"
+                    android:textSize="6pt" />
+                <ImageView
+                    android:id="@+id/table_homepage_page_goto"
+                    android:layout_width="@dimen/dp_12"
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@mipmap/homepage_goto"
+                    android:layout_marginTop="@dimen/dp_10"
+                    />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/homepage_recommend_RecyclerView"
+                    android:layout_below="@id/table_homepage_page_hot"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_14"
+                    android:layout_marginRight="@dimen/dp_14"
+                    ></android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
                 android:background="#F7F7F7">
                 <TextView
                     android:id="@+id/table_homepage_page_tuijian"

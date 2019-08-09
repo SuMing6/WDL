@@ -16,7 +16,13 @@ public interface MyContract {
         void PHomePageBander();
         void PHomePageIntegral();
         void PHomePageGoods();
-        void PHomePageGoodsInfo(int id );
+        void PHomePagehot();
+        void PHomePageGoodsInfo(int aid);
+
+        void PMyLoginYzm(String phone);
+        void PMyLogin(String phone,String code);
+
+
         void PHomePageGoodsInfoComment(int gid,int start, int num);
         void PClassifyFragment();
 
@@ -28,6 +34,7 @@ public interface MyContract {
             void ShowBander(Object o);
             void ShowIntegral(Object o);
             void ShowGoods(Object o);
+            void Showhot(Object o);
         }
         interface HomepageGoodsInfoActivity{
             void ShowGoodsInfo(Object o);
@@ -39,6 +46,11 @@ public interface MyContract {
         //分类
         interface ClassifyFragment{
             void ShowClassifyFragment(Object o);
+        }
+        //登录_验证码
+        interface LogingActivity{
+            void ShowGetYzm(Object o);
+            void ShowLogin(Object o);
         }
 
     }

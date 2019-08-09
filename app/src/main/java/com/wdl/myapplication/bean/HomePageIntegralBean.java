@@ -61,7 +61,7 @@ public class HomePageIntegralBean {
 
     public static class DataBean {
 
-        private String id;
+        private int id;
         private String sid;
         private String uid;
         private String cat;
@@ -80,11 +80,11 @@ public class HomePageIntegralBean {
         private String hd_xianshiqianggou;
         private String hd_temaijingxuan;
 
-        public String getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
 

@@ -3,11 +3,8 @@ package com.wdl.myapplication.bean;
 import java.util.List;
 
 public class HomePageGoodsInfoBean {
-
     private int code;
-    private String msg;
-    private String base_url;
-    private InfoBean info;
+    private DataBean data;
 
     public int getCode() {
         return code;
@@ -17,376 +14,186 @@ public class HomePageGoodsInfoBean {
         this.code = code;
     }
 
-    public String getMsg() {
-        return msg;
+    public DataBean getData() {
+        return data;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setData(DataBean data) {
+        this.data = data;
     }
 
-    public String getBase_url() {
-        return base_url;
-    }
+    public static class DataBean {
 
-    public void setBase_url(String base_url) {
-        this.base_url = base_url;
-    }
+        private String id;
+        private String sid;
+        private String uid;
+        private String cat;
+        private String title;
+        private String sku;
+        private String price_old;
+        private String price;
+        private String pic;
+        private String content;
+        private String zan;
+        private String xiaoliang;
+        private String hit;
+        private Object para;
+        private String date;
+        private String hd_xianshiqianggou;
+        private String hd_temaijingxuan;
+        private Object guige;
+        private List<String> pics;
 
-    public InfoBean getInfo() {
-        return info;
-    }
-
-    public void setInfo(InfoBean info) {
-        this.info = info;
-    }
-
-    public static class InfoBean {
-
-        private String name;
-        private int shop_id;
-        private int market_price;
-        private int shop_price;
-        private int number;
-        private String img;
-        private String info;
-        private int sales;
-        private int is_points;
-        private int second;
-        private String rolex;
-        private String video;
-        private int points;
-        private int review;
-        private int rate;
-        private int is_free;
-        private int id;
-        private int collect;
-        private int spec;
-        private ShopBean shop;
-        private String huajia;
-        private List<String> detail;
-        private List<SpecListBean> spec_list;
-        private List<ShopListBean> shop_list;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getShop_id() {
-            return shop_id;
-        }
-
-        public void setShop_id(int shop_id) {
-            this.shop_id = shop_id;
-        }
-
-        public int getMarket_price() {
-            return market_price;
-        }
-
-        public void setMarket_price(int market_price) {
-            this.market_price = market_price;
-        }
-
-        public int getShop_price() {
-            return shop_price;
-        }
-
-        public void setShop_price(int shop_price) {
-            this.shop_price = shop_price;
-        }
-
-        public int getNumber() {
-            return number;
-        }
-
-        public void setNumber(int number) {
-            this.number = number;
-        }
-
-        public String getImg() {
-            return img;
-        }
-
-        public void setImg(String img) {
-            this.img = img;
-        }
-
-        public String getInfo() {
-            return info;
-        }
-
-        public void setInfo(String info) {
-            this.info = info;
-        }
-
-        public int getSales() {
-            return sales;
-        }
-
-        public void setSales(int sales) {
-            this.sales = sales;
-        }
-
-        public int getIs_points() {
-            return is_points;
-        }
-
-        public void setIs_points(int is_points) {
-            this.is_points = is_points;
-        }
-
-        public int getSecond() {
-            return second;
-        }
-
-        public void setSecond(int second) {
-            this.second = second;
-        }
-
-        public String getRolex() {
-            return rolex;
-        }
-
-        public void setRolex(String rolex) {
-            this.rolex = rolex;
-        }
-
-        public String getVideo() {
-            return video;
-        }
-
-        public void setVideo(String video) {
-            this.video = video;
-        }
-
-        public int getPoints() {
-            return points;
-        }
-
-        public void setPoints(int points) {
-            this.points = points;
-        }
-
-        public int getReview() {
-            return review;
-        }
-
-        public void setReview(int review) {
-            this.review = review;
-        }
-
-        public int getRate() {
-            return rate;
-        }
-
-        public void setRate(int rate) {
-            this.rate = rate;
-        }
-
-        public int getIs_free() {
-            return is_free;
-        }
-
-        public void setIs_free(int is_free) {
-            this.is_free = is_free;
-        }
-
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
-        public int getCollect() {
-            return collect;
+        public String getSid() {
+            return sid;
         }
 
-        public void setCollect(int collect) {
-            this.collect = collect;
+        public void setSid(String sid) {
+            this.sid = sid;
         }
 
-        public int getSpec() {
-            return spec;
+        public String getUid() {
+            return uid;
         }
 
-        public void setSpec(int spec) {
-            this.spec = spec;
+        public void setUid(String uid) {
+            this.uid = uid;
         }
 
-        public ShopBean getShop() {
-            return shop;
+        public String getCat() {
+            return cat;
         }
 
-        public void setShop(ShopBean shop) {
-            this.shop = shop;
+        public void setCat(String cat) {
+            this.cat = cat;
         }
 
-        public String getHuajia() {
-            return huajia;
+        public String getTitle() {
+            return title;
         }
 
-        public void setHuajia(String huajia) {
-            this.huajia = huajia;
+        public void setTitle(String title) {
+            this.title = title;
         }
 
-        public List<String> getDetail() {
-            return detail;
+        public String getSku() {
+            return sku;
         }
 
-        public void setDetail(List<String> detail) {
-            this.detail = detail;
+        public void setSku(String sku) {
+            this.sku = sku;
         }
 
-        public List<SpecListBean> getSpec_list() {
-            return spec_list;
+        public String getPrice_old() {
+            return price_old;
         }
 
-        public void setSpec_list(List<SpecListBean> spec_list) {
-            this.spec_list = spec_list;
+        public void setPrice_old(String price_old) {
+            this.price_old = price_old;
         }
 
-        public List<ShopListBean> getShop_list() {
-            return shop_list;
+        public String getPrice() {
+            return price;
         }
 
-        public void setShop_list(List<ShopListBean> shop_list) {
-            this.shop_list = shop_list;
+        public void setPrice(String price) {
+            this.price = price;
         }
 
-        public static class ShopBean {
-
-            private String shop_name;
-            private String shop_img;
-            private int shop_score;
-
-            public String getShop_name() {
-                return shop_name;
-            }
-
-            public void setShop_name(String shop_name) {
-                this.shop_name = shop_name;
-            }
-
-            public String getShop_img() {
-                return shop_img;
-            }
-
-            public void setShop_img(String shop_img) {
-                this.shop_img = shop_img;
-            }
-
-            public int getShop_score() {
-                return shop_score;
-            }
-
-            public void setShop_score(int shop_score) {
-                this.shop_score = shop_score;
-            }
+        public String getPic() {
+            return pic;
         }
 
-        public static class SpecListBean {
-
-            private int id;
-            private String spec_name;
-            private int shop_price;
-            private int market_price;
-            private String spec_img;
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
-
-            public String getSpec_name() {
-                return spec_name;
-            }
-
-            public void setSpec_name(String spec_name) {
-                this.spec_name = spec_name;
-            }
-
-            public int getShop_price() {
-                return shop_price;
-            }
-
-            public void setShop_price(int shop_price) {
-                this.shop_price = shop_price;
-            }
-
-            public int getMarket_price() {
-                return market_price;
-            }
-
-            public void setMarket_price(int market_price) {
-                this.market_price = market_price;
-            }
-
-            public String getSpec_img() {
-                return spec_img;
-            }
-
-            public void setSpec_img(String spec_img) {
-                this.spec_img = spec_img;
-            }
+        public void setPic(String pic) {
+            this.pic = pic;
         }
 
-        public static class ShopListBean {
+        public String getContent() {
+            return content;
+        }
 
-            private int id;
-            private String name;
-            private String img;
-            private int shop_price;
-            private int is_points;
+        public void setContent(String content) {
+            this.content = content;
+        }
 
-            public int getId() {
-                return id;
-            }
+        public String getZan() {
+            return zan;
+        }
 
-            public void setId(int id) {
-                this.id = id;
-            }
+        public void setZan(String zan) {
+            this.zan = zan;
+        }
 
-            public String getName() {
-                return name;
-            }
+        public String getXiaoliang() {
+            return xiaoliang;
+        }
 
-            public void setName(String name) {
-                this.name = name;
-            }
+        public void setXiaoliang(String xiaoliang) {
+            this.xiaoliang = xiaoliang;
+        }
 
-            public String getImg() {
-                return img;
-            }
+        public String getHit() {
+            return hit;
+        }
 
-            public void setImg(String img) {
-                this.img = img;
-            }
+        public void setHit(String hit) {
+            this.hit = hit;
+        }
 
-            public int getShop_price() {
-                return shop_price;
-            }
+        public Object getPara() {
+            return para;
+        }
 
-            public void setShop_price(int shop_price) {
-                this.shop_price = shop_price;
-            }
+        public void setPara(Object para) {
+            this.para = para;
+        }
 
-            public int getIs_points() {
-                return is_points;
-            }
+        public String getDate() {
+            return date;
+        }
 
-            public void setIs_points(int is_points) {
-                this.is_points = is_points;
-            }
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getHd_xianshiqianggou() {
+            return hd_xianshiqianggou;
+        }
+
+        public void setHd_xianshiqianggou(String hd_xianshiqianggou) {
+            this.hd_xianshiqianggou = hd_xianshiqianggou;
+        }
+
+        public String getHd_temaijingxuan() {
+            return hd_temaijingxuan;
+        }
+
+        public void setHd_temaijingxuan(String hd_temaijingxuan) {
+            this.hd_temaijingxuan = hd_temaijingxuan;
+        }
+
+        public Object getGuige() {
+            return guige;
+        }
+
+        public void setGuige(Object guige) {
+            this.guige = guige;
+        }
+
+        public List<String> getPics() {
+            return pics;
+        }
+
+        public void setPics(List<String> pics) {
+            this.pics = pics;
         }
     }
 }

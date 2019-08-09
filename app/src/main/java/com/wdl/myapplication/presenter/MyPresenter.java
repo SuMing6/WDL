@@ -6,7 +6,10 @@ import com.wdl.myapplication.bean.ClassifyBean;
 import com.wdl.myapplication.bean.HomePageBanderBean;
 import com.wdl.myapplication.bean.HomePageGoodsBean;
 import com.wdl.myapplication.bean.HomePageGoodsInfoBean;
+import com.wdl.myapplication.bean.HomePageHotBean;
 import com.wdl.myapplication.bean.HomePageIntegralBean;
+import com.wdl.myapplication.bean.MyLoginBean;
+import com.wdl.myapplication.bean.MyLoginYzmBean;
 import com.wdl.myapplication.contract.MyContract;
 import com.wdl.myapplication.data.Port;
 import com.wdl.myapplication.model.MyModel;
@@ -74,12 +77,28 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
             }
         });
     }
-    //详情页面
+    //热销
     @Override
-    public void PHomePageGoodsInfo(int id) {
-        /*final HomepageGoodsInfoActivity homepageGoodsInfoActivity = (HomepageGoodsInfoActivity) t;
-        map.put("id", String.valueOf(id));
-        myModel.doPost(Port.Homepage_GoodsUrlInfo, HomePageGoodsInfoBean.class, map, new MyModel.MyCallBack() {
+    public void PHomePagehot() {
+        final MyContract.MyView.HomePageActivity homePageActivity = (MyContract.MyView.HomePageActivity) t;
+        myModel.doPost(Port.Homepage_hot, HomePageHotBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                homePageActivity.Showhot(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+
+            }
+        });
+    }
+
+    @Override
+    public void PHomePageGoodsInfo(int aid) {
+        final MyContract.MyView.HomepageGoodsInfoActivity homepageGoodsInfoActivity = (MyContract.MyView.HomepageGoodsInfoActivity) t;
+        map.put("aid", String.valueOf(aid));
+        myModel.doGet(Port.Homepage_GoodsUrlInfo, HomePageGoodsInfoBean.class, map, new MyModel.MyCallBack() {
             @Override
             public void success(Object o) {
                 homepageGoodsInfoActivity.ShowGoodsInfo(o);
@@ -89,8 +108,42 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
             public void onError(Object o) {
 
             }
-        });*/
+        });
     }
+    //验证码
+    @Override
+    public void PMyLoginYzm(String phone) {
+        final MyContract.MyView.LogingActivity logingActivity = (MyContract.MyView.LogingActivity) t;
+        map.put("phone", String.valueOf(phone));
+        myModel.doGet(Port.My_LoginYzm, MyLoginYzmBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                logingActivity.ShowGetYzm(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+            }
+        });
+    }
+
+    @Override
+    public void PMyLogin(String phone, String code) {
+        final MyContract.MyView.LogingActivity logingActivity = (MyContract.MyView.LogingActivity) t;
+        map.put("phone", phone);
+        map.put("code", String.valueOf(code));
+        myModel.doGet(Port.My_Login, MyLoginBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                logingActivity.ShowLogin(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+            }
+        });
+    }
+
     //详情页评论
     @Override
     public void PHomePageGoodsInfoComment(int gid, int start, int num) {
