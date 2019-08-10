@@ -3,11 +3,8 @@ package com.wdl.myapplication.bean;
 import java.util.List;
 
 public class ClassifyBean {
-
     private int code;
-    private String msg;
-    private String base_url;
-    private List<ListBean> list;
+    private List<DataBean> data;
 
     public int getCode() {
         return code;
@@ -17,42 +14,32 @@ public class ClassifyBean {
         this.code = code;
     }
 
-    public String getMsg() {
-        return msg;
+    public List<DataBean> getData() {
+        return data;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setData(List<DataBean> data) {
+        this.data = data;
     }
 
-    public String getBase_url() {
-        return base_url;
-    }
+    public static class DataBean {
 
-    public void setBase_url(String base_url) {
-        this.base_url = base_url;
-    }
-
-    public List<ListBean> getList() {
-        return list;
-    }
-
-    public void setList(List<ListBean> list) {
-        this.list = list;
-    }
-
-    public static class ListBean {
-
-        private int id;
+        private String id;
         private String name;
-        private String icon;
-        private List<SonListBean> son_list;
+        private String type;
+        private String sid;
+        private String fid;
+        private Object uid;
+        private String pic;
+        private String position;
+        private Object date;
+        private String num;
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -64,51 +51,68 @@ public class ClassifyBean {
             this.name = name;
         }
 
-        public String getIcon() {
-            return icon;
+        public String getType() {
+            return type;
         }
 
-        public void setIcon(String icon) {
-            this.icon = icon;
+        public void setType(String type) {
+            this.type = type;
         }
 
-        public List<SonListBean> getSon_list() {
-            return son_list;
+        public String getSid() {
+            return sid;
         }
 
-        public void setSon_list(List<SonListBean> son_list) {
-            this.son_list = son_list;
+        public void setSid(String sid) {
+            this.sid = sid;
         }
 
-        public static class SonListBean {
+        public String getFid() {
+            return fid;
+        }
 
-            private int id;
-            private String name;
-            private String icon;
+        public void setFid(String fid) {
+            this.fid = fid;
+        }
 
-            public int getId() {
-                return id;
-            }
+        public Object getUid() {
+            return uid;
+        }
 
-            public void setId(int id) {
-                this.id = id;
-            }
+        public void setUid(Object uid) {
+            this.uid = uid;
+        }
 
-            public String getName() {
-                return name;
-            }
+        public String getPic() {
+            return pic;
+        }
 
-            public void setName(String name) {
-                this.name = name;
-            }
+        public void setPic(String pic) {
+            this.pic = pic;
+        }
 
-            public String getIcon() {
-                return icon;
-            }
+        public String getPosition() {
+            return position;
+        }
 
-            public void setIcon(String icon) {
-                this.icon = icon;
-            }
+        public void setPosition(String position) {
+            this.position = position;
+        }
+
+        public Object getDate() {
+            return date;
+        }
+
+        public void setDate(Object date) {
+            this.date = date;
+        }
+
+        public String getNum() {
+            return num;
+        }
+
+        public void setNum(String num) {
+            this.num = num;
         }
     }
 }

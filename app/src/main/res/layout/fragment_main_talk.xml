@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="心情说说"/>
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/dp_35">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分类"
+        android:gravity="center"
+        android:textSize="@dimen/dp_18"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:textColor="#333333"
+        />
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Talk_XRecyclerView"
+        android:layout_marginLeft="@dimen/dp_14"
+        android:layout_marginRight="@dimen/dp_14"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+
+
+
+</LinearLayout>

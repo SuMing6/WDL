@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wdl.myapplication.R;
+import com.wdl.myapplication.bean.ClassifyBean;
 import com.wdl.myapplication.contract.MyContract;
 import com.wdl.myapplication.presenter.MyPresenter;
 
@@ -31,11 +32,11 @@ public class ClassifyFragment extends Fragment implements MyContract.MyView.Clas
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        myPresenter.PClassifyFragment();
+        myPresenter.PClassifyFragment(0);
     }
 
     @Override
     public void ShowClassifyFragment(Object o) {
-
+        ClassifyBean classifyBean = (ClassifyBean) o;
     }
 }

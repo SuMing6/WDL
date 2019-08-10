@@ -3,6 +3,7 @@ package com.wdl.myapplication.presenter;
 import android.util.Log;
 
 import com.wdl.myapplication.bean.ClassifyBean;
+import com.wdl.myapplication.bean.GetUserBean;
 import com.wdl.myapplication.bean.HomePageBanderBean;
 import com.wdl.myapplication.bean.HomePageGoodsBean;
 import com.wdl.myapplication.bean.HomePageGoodsInfoBean;
@@ -10,6 +11,8 @@ import com.wdl.myapplication.bean.HomePageHotBean;
 import com.wdl.myapplication.bean.HomePageIntegralBean;
 import com.wdl.myapplication.bean.MyLoginBean;
 import com.wdl.myapplication.bean.MyLoginYzmBean;
+import com.wdl.myapplication.bean.ShoppingCarBean;
+import com.wdl.myapplication.bean.TalkTmBean;
 import com.wdl.myapplication.contract.MyContract;
 import com.wdl.myapplication.data.Port;
 import com.wdl.myapplication.model.MyModel;
@@ -19,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyPresenter<T> implements MyContract.MyPresenter {
+
     MyContract.MyModel myModel ;
     T t ;
     private final Map<String, String> map;
@@ -110,6 +114,40 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
             }
         });
     }
+
+    @Override
+    public void PTalkTm(int page) {
+        final MyContract.MyView.TalkFragment talkFragment = (MyContract.MyView.TalkFragment) t;
+        map.put("aid", String.valueOf(page));
+        myModel.doGet(Port.TalkTm, TalkTmBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                talkFragment.ShowTalk(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+
+            }
+        });
+    }
+
+    @Override
+    public void PShopping_Car() {
+        final MyContract.MyView.ShoppingFragment shoppingFragment = (MyContract.MyView.ShoppingFragment) t;
+        myModel.doGet(Port.ShoppingCar, ShoppingCarBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                shoppingFragment.ShowShoppingCar(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+
+            }
+        });
+    }
+
     //验证码
     @Override
     public void PMyLoginYzm(String phone) {
@@ -144,6 +182,21 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
         });
     }
 
+    @Override
+    public void PMyUser() {
+        final MyContract.MyView.MyFragment myFragment = (MyContract.MyView.MyFragment) t;
+        myModel.doGet(Port.My_User, GetUserBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                myFragment.ShowMyFragment(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+            }
+        });
+    }
+
     //详情页评论
     @Override
     public void PHomePageGoodsInfoComment(int gid, int start, int num) {
@@ -165,19 +218,18 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
     }
     //分类
     @Override
-    public void PClassifyFragment() {
-        /*final MyContract.MyView.ClassifyFragment classifyFragment = (MyContract.MyView.ClassifyFragment) t;
+    public void PClassifyFragment(int fid) {
+        final MyContract.MyView.ClassifyFragment classifyFragment = (MyContract.MyView.ClassifyFragment) t;
         myModel.doGet(Port.Classify, ClassifyBean.class, map, new MyModel.MyCallBack() {
             @Override
             public void success(Object o) {
                 classifyFragment.ShowClassifyFragment(o);
-
             }
 
             @Override
             public void onError(Object o) {
 
             }
-        });*/
+        });
     }
 }

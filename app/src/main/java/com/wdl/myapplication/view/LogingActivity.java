@@ -3,10 +3,8 @@ package com.wdl.myapplication.view;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,28 +14,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wdl.myapplication.R;
+import com.wdl.myapplication.activity.MainActivity;
+import com.wdl.myapplication.bean.ClassifyBean;
 import com.wdl.myapplication.bean.MyLoginBean;
 import com.wdl.myapplication.bean.MyLoginYzmBean;
 import com.wdl.myapplication.contract.MyContract;
+import com.wdl.myapplication.greendao.DaoBean;
 import com.wdl.myapplication.presenter.MyPresenter;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import com.wdl.myapplication.util.App;
 
 public class LogingActivity extends AppCompatActivity implements MyContract.MyView.LogingActivity {
 
+    public static MyLoginBean myLoginBean = null;
     EditText ed_phone , loging_yzm ;
     TextView  loging_getyzm , back,loging_pwd , my_login_reg;
     Button  loging_login ;
+    Intent intent = new Intent();
     MyContract.MyPresenter myPresenter = new MyPresenter<>(this);
-    public static MyLoginBean myLoginBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CQS();
         setContentView(R.layout.activity_loging);
+        //EventBus.getDefault().register(LogingActivity.this);
         ed_phone = findViewById(R.id.loging_phone);
         loging_getyzm = findViewById(R.id.loging_getyzm);
         loging_yzm = findViewById(R.id.loging_yzm);
@@ -56,7 +56,7 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
     }
 
     private void register() {
-        my_login_reg = findViewById(R.id.my_loginpwd_reg);
+        my_login_reg = findViewById(R.id.my_login_reg);
         my_login_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +71,8 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
         loging_pwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogingActivity.this,LogingPwdActivity.class);
+
+                intent.setClass(LogingActivity.this,LogingPwdActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -95,6 +96,7 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
                 String syzm = loging_yzm.getText().toString();
                 String sphone = ed_phone.getText().toString();
                 myPresenter.PMyLogin(sphone, syzm);
+                finish();
             }
         });
     }
@@ -122,6 +124,20 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
 
         Toast.makeText(this, myLoginBean.getCode()+"",Toast.LENGTH_SHORT).show();
         if (myLoginBean.getCode()==0){
+
+            /*DaoBean beaan = new DaoBean();
+            beaan.setId(myLoginBean.getData().getId());
+            beaan.setTel(myLoginBean.getData().getTel());
+            beaan.setNick(myLoginBean.getData().getNick());
+            beaan.setSid(myLoginBean.getData().getSid());
+            beaan.setHeadpic(myLoginBean.getData().getHeadpic());
+            beaan.setDate_reg(myLoginBean.getData().getDate_reg());
+            beaan.setDate_lastaction(myLoginBean.getData().getDate_lastaction());
+
+            App.daoBeanDao.insert(beaan);*/
+            intent.setClass(LogingActivity.this, MainActivity.class);
+            startActivity(intent);
+
             finish();
         }else {
             Toast.makeText(this, myLoginBean.getCode()+"登录失败",Toast.LENGTH_SHORT).show();
@@ -145,5 +161,13 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
             WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        /*if(EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }*/
     }
 }
