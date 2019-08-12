@@ -1,5 +1,6 @@
 package com.wdl.myapplication.view;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
@@ -8,26 +9,42 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.wdl.myapplication.R;
 
-public class MyHaoYouActivity extends AppCompatActivity {
+public class MyDiZhiActivity extends AppCompatActivity {
 
-    TextView my_haoyou ;
-
+    TextView my_dizhi ;
+    Button my_add_dizhi ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CQS();
-        setContentView(R.layout.activity_my_hao_you);
-        my_haoyou = findViewById(R.id.my_haoyou);
-        my_haoyou();
+        setContentView(R.layout.activity_my_di_zhi);
+        my_dizhi = findViewById(R.id.my_dizhi);
+        my_add_dizhi = findViewById(R.id.my_add_dizhi);
+
+        my_add_dizhi();
+
+        //返回
+        my_dizhi();
 
     }
 
-    private void my_haoyou() {
-        my_haoyou.setOnClickListener(new View.OnClickListener() {
+    private void my_add_dizhi() {
+        my_add_dizhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyDiZhiActivity.this,MyAddDiZhiActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void my_dizhi() {
+        my_dizhi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

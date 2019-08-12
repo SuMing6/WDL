@@ -62,16 +62,38 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             Intent intent = new Intent(getContext(),LogingActivity.class);
             startActivity(intent);
         }
+        imageViewUpdata();
         //钱包
         my_qianbao();
         //优惠
         my_youhui();
         //邀请好友
         my_haoyou();
+        //收藏
+        my_shoucang();
         //设置
         my_shezhi();
         //地址
         my_dizhi();
+    }
+
+    private void imageViewUpdata() {
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    private void my_shoucang() {
+        my_shoucang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),MyShouCangActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void my_haoyou() {
@@ -130,7 +152,13 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
     }
 
     private void my_dizhi() {
-
+        my_dizhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),MyDiZhiActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     //是否第一次加载
     private boolean isFirstLoading = true;

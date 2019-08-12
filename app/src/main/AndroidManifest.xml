@@ -19,7 +19,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.MyHaoYouActivity"></activity>
+        <activity android:name=".view.MyAddDiZhiActivity"></activity>
+        <activity android:name=".view.MyDiZhiActivity" />
+        <activity android:name=".view.MyShouCangActivity" />
+        <activity android:name=".view.MyHaoYouActivity" />
         <activity android:name=".view.MyYouHuiActivity" />
         <activity android:name=".view.MyMoneyActivity" />
         <activity android:name=".view.LogingActivity">
@@ -29,13 +32,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".view.HomepageGoodsInfoActivity" />
         <activity android:name=".view.HomepageGoodsInfoCommentActivity" />
         <activity
             android:name=".zxing.android.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name=".activity.MainActivity" />
         <activity android:name=".view.LogingPwdActivity" />
         <activity android:name=".view.RegisterActivity" />
     </application>

@@ -8,26 +8,48 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wdl.myapplication.R;
 
-public class MyHaoYouActivity extends AppCompatActivity {
+public class MyShouCangActivity extends AppCompatActivity {
 
-    TextView my_haoyou ;
+    TextView my_shoucang , my_shoucang_bj;
+    RelativeLayout relativeLayout ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CQS();
-        setContentView(R.layout.activity_my_hao_you);
-        my_haoyou = findViewById(R.id.my_haoyou);
-        my_haoyou();
+        setContentView(R.layout.activity_my_shou_cang);
+        my_shoucang = findViewById(R.id.my_shoucang);
+        my_shoucang_bj = findViewById(R.id.my_shoucang_bj);
+        relativeLayout = findViewById(R.id.my_mingxi_bjRelativeLayout);
+
+        //点击编辑
+        my_shoucang_bj();
+        //返回
+        my_shoucang();
 
     }
 
-    private void my_haoyou() {
-        my_haoyou.setOnClickListener(new View.OnClickListener() {
+    private void my_shoucang_bj() {
+        my_shoucang_bj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (relativeLayout.getVisibility()==View.GONE){
+                    relativeLayout.setVisibility(View.VISIBLE);
+                }else {
+                    relativeLayout.setVisibility(View.GONE);
+                }
+            }
+        });
+    }
+
+    private void my_shoucang() {
+        my_shoucang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

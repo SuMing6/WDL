@@ -58,7 +58,7 @@ public class ShoppingFragment extends Fragment implements MyContract.MyView.Shop
     @Override
     public void ShowShoppingCar(Object o) {
         shoppingCarBean = (ShoppingCarBean) o;
-        Log.e("购物车",shoppingCarBean.getCode()+""+shoppingCarBean.getData());
+        //Log.e("购物车",shoppingCarBean.getCode()+""+shoppingCarBean.getData());
         if (shoppingCarBean.getData()!=null){
             textView.setVisibility(View.GONE);
             adapter.notifyDataSetChanged();

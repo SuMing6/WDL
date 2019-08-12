@@ -12,22 +12,21 @@ import android.widget.TextView;
 
 import com.wdl.myapplication.R;
 
-public class MyHaoYouActivity extends AppCompatActivity {
+public class MyAddDiZhiActivity extends AppCompatActivity {
 
-    TextView my_haoyou ;
+    TextView my_dizhi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CQS();
-        setContentView(R.layout.activity_my_hao_you);
-        my_haoyou = findViewById(R.id.my_haoyou);
-        my_haoyou();
-
+        setContentView(R.layout.activity_my_add_di_zhi);
+        my_dizhi = findViewById(R.id.my_dizhi);
+        my_dizhi();
     }
 
-    private void my_haoyou() {
-        my_haoyou.setOnClickListener(new View.OnClickListener() {
+    private void my_dizhi() {
+        my_dizhi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
