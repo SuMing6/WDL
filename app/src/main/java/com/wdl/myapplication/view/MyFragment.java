@@ -28,6 +28,7 @@ import java.util.List;
 
 public class MyFragment extends Fragment implements MyContract.MyView.MyFragment {
 
+    TextView my_shezhi ;
     RelativeLayout my_dizhi , my_shoucang , my_haoyou , my_youhui , my_qianbao , my_login ;
     private ImageView imageView ;
     private TextView text_name ;
@@ -45,51 +46,84 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
         my_haoyou = view.findViewById(R.id.my_haoyou);
         my_youhui = view.findViewById(R.id.my_youhui);
         my_qianbao = view.findViewById(R.id.my_qianbao);
-        my_login = view.findViewById(R.id.my_login);
         imageView = view.findViewById(R.id.my_touxiang);
         text_name = view.findViewById(R.id.my_touname);
+        my_shezhi = view.findViewById(R.id.my_shezhi);
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-            //Log.e("啊啊啊啊",LogingActivity.myLoginBean.toString());
-        /*if (LogingActivity.myLoginBean.getCode()==0){
-            List<DaoBean> userList = App.daoBeanDao.queryBuilder()
-                    .where(DaoBeanDao.Properties.Id.notEq(999))
-                    .orderAsc(DaoBeanDao.Properties.Id)
-                    .limit(5)
-                    .build().list();
-
-            for (int i = 0; i < userList.size(); i++) {
-                tel = userList.get(i).getTel();
-                headpic = userList.get(i).getHeadpic();
-            }
-
-            Log.e("啊啊啊啊",tel);
-            //int code = LogingActivity.myLoginBean.getCode();
-
+        if (LogingActivity.myLoginBean.getData()!=null){
+            text_name.setText(LogingActivity.myLoginBean.getData().getTel());
+            imageView.setImageURI(Uri.parse(LogingActivity.myLoginBean.getData().getHeadpic()));
         }else {
-
-        }*/
-        /*if (LogingActivity.myLoginBean==null){
-
-        }else {
-            myPresenter.PMyUser();
-        }*/
-
+            Intent intent = new Intent(getContext(),LogingActivity.class);
+            startActivity(intent);
+        }
+        //钱包
+        my_qianbao();
+        //优惠
+        my_youhui();
+        //邀请好友
+        my_haoyou();
+        //设置
+        my_shezhi();
         //地址
         my_dizhi();
-        //登录
-        my_login();
     }
+
+    private void my_haoyou() {
+        my_haoyou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),MyHaoYouActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void my_youhui() {
+        my_youhui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),MyYouHuiActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void my_qianbao() {
+        my_qianbao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),MyMoneyActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void my_shezhi() {
+        my_shezhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (LogingActivity.myLoginBean.getData()!= null){
+                    /*Intent intent = new Intent();
+                    startActivity(intent);*/
+                }else {
+                    Toast.makeText(getContext(),"请先登录",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     //登录
     private void my_login() {
         my_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),LogingPwdActivity.class);
+                Intent intent = new Intent(getContext(),LogingActivity.class);
                 startActivity(intent);
             }
         });
@@ -120,4 +154,10 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
 
         isFirstLoading = false;
     }*/
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
 }

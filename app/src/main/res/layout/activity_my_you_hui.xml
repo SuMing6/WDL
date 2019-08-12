@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MyYouHuiActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_35">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的优惠券"
+        android:gravity="center"
+        android:textSize="@dimen/dp_18"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:textColor="#333333"
+        />
+    <TextView
+        android:id="@+id/my_youhuiquan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="＜"
+        android:layout_marginLeft="@dimen/dp_14"
+        android:gravity="center"
+        android:textSize="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_14"
+        android:textColor="#333333"
+        />
+    </RelativeLayout>
+</LinearLayout>

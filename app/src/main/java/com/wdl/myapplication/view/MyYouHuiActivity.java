@@ -1,6 +1,5 @@
 package com.wdl.myapplication.view;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
@@ -13,50 +12,25 @@ import android.widget.TextView;
 
 import com.wdl.myapplication.R;
 
-public class LogingPwdActivity extends AppCompatActivity {
+public class MyYouHuiActivity extends AppCompatActivity {
 
-    TextView textView ,my_loginpwd_back,my_loginpwd_reg;
+    TextView my_youhuiquan ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CQS();
-        setContentView(R.layout.activity_loging_pwd);
+        setContentView(R.layout.activity_my_you_hui);
+        my_youhuiquan =findViewById(R.id.my_youhuiquan);
 
-        yzm();
-        back();
-        register();
+        my_youhuiquan();
+
     }
 
-    private void register() {
-        my_loginpwd_reg = findViewById(R.id.my_loginpwd_reg);
-        my_loginpwd_reg.setOnClickListener(new View.OnClickListener() {
+    private void my_youhuiquan() {
+        my_youhuiquan.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogingPwdActivity.this,RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void back() {
-        my_loginpwd_back = findViewById(R.id.my_loginpwd_back);
-        my_loginpwd_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
-
-
-    private void yzm() {
-        textView = findViewById(R.id.my_loginpwd_yzm);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogingPwdActivity.this,LogingActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
                 finish();
             }
         });

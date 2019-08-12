@@ -7,6 +7,7 @@ import com.wdl.myapplication.bean.GetUserBean;
 import com.wdl.myapplication.bean.HomePageBanderBean;
 import com.wdl.myapplication.bean.HomePageGoodsBean;
 import com.wdl.myapplication.bean.HomePageGoodsInfoBean;
+import com.wdl.myapplication.bean.HomePageGoodsInfoByBean;
 import com.wdl.myapplication.bean.HomePageHotBean;
 import com.wdl.myapplication.bean.HomePageIntegralBean;
 import com.wdl.myapplication.bean.MyLoginBean;
@@ -106,6 +107,25 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
             @Override
             public void success(Object o) {
                 homepageGoodsInfoActivity.ShowGoodsInfo(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+
+            }
+        });
+    }
+
+    @Override
+    public void PHomePageGoodsInfoBy(int cid, int gid, int num) {
+        final MyContract.MyView.HomepageGoodsInfoActivity homepageGoodsInfoActivity = (MyContract.MyView.HomepageGoodsInfoActivity) t;
+        map.put("cid", String.valueOf(cid));
+        map.put("gid", String.valueOf(gid));
+        map.put("num", String.valueOf(num));
+        myModel.doGet(Port.Homepage_GoodsUrlInfoBy, HomePageGoodsInfoByBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                homepageGoodsInfoActivity.ShowGoodsInfoBy(o);
             }
 
             @Override

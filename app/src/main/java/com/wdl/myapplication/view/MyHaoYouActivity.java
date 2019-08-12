@@ -1,6 +1,5 @@
 package com.wdl.myapplication.view;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
@@ -13,53 +12,23 @@ import android.widget.TextView;
 
 import com.wdl.myapplication.R;
 
-public class LogingPwdActivity extends AppCompatActivity {
+public class MyHaoYouActivity extends AppCompatActivity {
 
-    TextView textView ,my_loginpwd_back,my_loginpwd_reg;
+    TextView my_haoyou ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CQS();
-        setContentView(R.layout.activity_loging_pwd);
+        setContentView(R.layout.activity_my_hao_you);
 
-        yzm();
-        back();
-        register();
-    }
-
-    private void register() {
-        my_loginpwd_reg = findViewById(R.id.my_loginpwd_reg);
-        my_loginpwd_reg.setOnClickListener(new View.OnClickListener() {
+        my_haoyou.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogingPwdActivity.this,RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void back() {
-        my_loginpwd_back = findViewById(R.id.my_loginpwd_back);
-        my_loginpwd_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 finish();
             }
         });
-    }
 
-
-    private void yzm() {
-        textView = findViewById(R.id.my_loginpwd_yzm);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogingPwdActivity.this,LogingActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     private void CQS() {

@@ -24,8 +24,8 @@ public class HomePageGoodsInfoBean {
 
     public static class DataBean {
 
-        private String id;
-        private String sid;
+        private int id;
+        private int sid;
         private String uid;
         private String cat;
         private String title;
@@ -44,19 +44,19 @@ public class HomePageGoodsInfoBean {
         private Object guige;
         private List<String> pics;
 
-        public String getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
 
-        public String getSid() {
+        public int getSid() {
             return sid;
         }
 
-        public void setSid(String sid) {
+        public void setSid(int sid) {
             this.sid = sid;
         }
 

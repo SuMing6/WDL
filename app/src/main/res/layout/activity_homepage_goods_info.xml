@@ -19,14 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F5F5F9"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dp_40">
 
             <com.youth.banner.Banner
                 android:id="@+id/Homepage_goods_info_Banner"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_250"
-                android:baselineAligned="false"
-                android:paddingTop="@dimen/dp_40"></com.youth.banner.Banner>
+                android:baselineAligned="false"></com.youth.banner.Banner>
 
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.wdl.myapplication.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -49,6 +50,15 @@ public class TalkFragment extends Fragment implements MyContract.MyView.TalkFrag
 
         adapter = new TalkTmAdapter(getActivity(),goodslist);
         xRecyclerView.setAdapter(adapter);
+        adapter.setSetOnClickItem(new TalkTmAdapter.setOnClickItem() {
+            @Override
+            public void onGreat(int id) {
+                Intent intent = new Intent(getActivity(),HomepageGoodsInfoActivity.class);
+                //Log.e("图片啊",id+"");
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
 
 
         myPresenter.PTalkTm(1);

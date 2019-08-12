@@ -18,6 +18,8 @@ public interface MyContract {
         void PHomePageGoods();
         void PHomePagehot();
         void PHomePageGoodsInfo(int aid);
+        void PHomePageGoodsInfoBy(int cid,int gid,int num);
+
 
         void PTalkTm(int page);
 
@@ -45,6 +47,7 @@ public interface MyContract {
         //详情页面
         interface HomepageGoodsInfoActivity{
             void ShowGoodsInfo(Object o);
+            void ShowGoodsInfoBy(Object o);
         }
         //分类
         interface ClassifyFragment{

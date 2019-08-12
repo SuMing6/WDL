@@ -6,6 +6,7 @@ public class Port {
     public static String Homepage_GoodsUrl="v1/jingxuan";
     public static String Homepage_hot="v1/remai";
     public static String Homepage_GoodsUrlInfo="v1/item";
+    public static String Homepage_GoodsUrlInfoBy="v1/tocar";
 
     public static String Classify="v1/fenlei";
 

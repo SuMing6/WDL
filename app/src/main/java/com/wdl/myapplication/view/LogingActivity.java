@@ -3,6 +3,7 @@ package com.wdl.myapplication.view;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,15 +23,17 @@ import com.wdl.myapplication.contract.MyContract;
 import com.wdl.myapplication.greendao.DaoBean;
 import com.wdl.myapplication.presenter.MyPresenter;
 import com.wdl.myapplication.util.App;
+import com.wdl.myapplication.util.RetrofitUtil;
 
 public class LogingActivity extends AppCompatActivity implements MyContract.MyView.LogingActivity {
 
-    public static MyLoginBean myLoginBean = null;
+    public static MyLoginBean myLoginBean = new MyLoginBean();
     EditText ed_phone , loging_yzm ;
     TextView  loging_getyzm , back,loging_pwd , my_login_reg;
     Button  loging_login ;
     Intent intent = new Intent();
     MyContract.MyPresenter myPresenter = new MyPresenter<>(this);
+    public static int sid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +46,10 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
         loging_yzm = findViewById(R.id.loging_yzm);
         loging_login = findViewById(R.id.loging_login);
         back = findViewById(R.id.my_login_back);
-
+        loging_login();
         back();
         loging_getyzm();
-        loging_login();
+
         login_pwd();
 
         register();
@@ -71,7 +74,6 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
         loging_pwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 intent.setClass(LogingActivity.this,LogingPwdActivity.class);
                 startActivity(intent);
                 finish();
@@ -96,7 +98,6 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
                 String syzm = loging_yzm.getText().toString();
                 String sphone = ed_phone.getText().toString();
                 myPresenter.PMyLogin(sphone, syzm);
-                finish();
             }
         });
     }
@@ -121,23 +122,11 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
     @Override
     public void ShowLogin(Object o) {
         myLoginBean = (MyLoginBean) o;
-
         Toast.makeText(this, myLoginBean.getCode()+"",Toast.LENGTH_SHORT).show();
         if (myLoginBean.getCode()==0){
-
-            /*DaoBean beaan = new DaoBean();
-            beaan.setId(myLoginBean.getData().getId());
-            beaan.setTel(myLoginBean.getData().getTel());
-            beaan.setNick(myLoginBean.getData().getNick());
-            beaan.setSid(myLoginBean.getData().getSid());
-            beaan.setHeadpic(myLoginBean.getData().getHeadpic());
-            beaan.setDate_reg(myLoginBean.getData().getDate_reg());
-            beaan.setDate_lastaction(myLoginBean.getData().getDate_lastaction());
-
-            App.daoBeanDao.insert(beaan);*/
+            sid = myLoginBean.getData().getSid();
             intent.setClass(LogingActivity.this, MainActivity.class);
             startActivity(intent);
-
             finish();
         }else {
             Toast.makeText(this, myLoginBean.getCode()+"登录失败",Toast.LENGTH_SHORT).show();
@@ -145,7 +134,7 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
     }
 
     private void CQS() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
+        /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -160,14 +149,24 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
         }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {//4.4到5.0
             WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
+        }*/
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    //为避免底部导航栏覆盖注释掉这一行
+//                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            decorView.setSystemUiVisibility(option);
+            getWindow().setNavigationBarColor(Color.TRANSPARENT);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        /*if(EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().unregister(this);
-        }*/
-    }
 }

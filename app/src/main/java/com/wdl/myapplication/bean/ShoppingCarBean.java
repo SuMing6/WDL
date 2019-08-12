@@ -3,6 +3,7 @@ package com.wdl.myapplication.bean;
 import java.util.List;
 
 public class ShoppingCarBean {
+
     private int code;
     private int count;
     private List<DataBean> data;
@@ -32,7 +33,6 @@ public class ShoppingCarBean {
     }
 
     public static class DataBean {
-
         private String id;
         private String cid;
         private String gid;
@@ -98,25 +98,7 @@ public class ShoppingCarBean {
         }
 
         public static class ChanpinBean {
-            /**
-             * id : 10
-             * pic : http://www.wandongli.com.cnhttp://img.wandongli.com/img/32/5449ffa511e54.jpg
-             * title : 网店托管
-             * price : 0.00
-             */
-
-            private String id;
             private String pic;
-            private String title;
-            private String price;
-
-            public String getId() {
-                return id;
-            }
-
-            public void setId(String id) {
-                this.id = id;
-            }
 
             public String getPic() {
                 return pic;
@@ -125,30 +107,9 @@ public class ShoppingCarBean {
             public void setPic(String pic) {
                 this.pic = pic;
             }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            public String getPrice() {
-                return price;
-            }
-
-            public void setPrice(String price) {
-                this.price = price;
-            }
         }
 
         public static class GuigeBean {
-            /**
-             * name : 一盒
-             * price : 99.00
-             */
-
             private String name;
             private String price;
 

@@ -169,10 +169,7 @@ public class HomePageFragment extends Fragment implements MyContract.MyView.Home
         jifenadapter.setSetOnClickItem(new HomePagetuijAdapter.setOnClickItem() {
             @Override
             public void onGreat(int id) {
-                Intent intent = new Intent(getActivity(),HomepageGoodsInfoActivity.class);
-                //Log.e("图片啊",id+"");
-                intent.putExtra("id",id);
-                startActivity(intent);
+
             }
         });
         hotAdapter.setSetOnClickItem(new HomePagetuijAdapter.setOnClickItem() {

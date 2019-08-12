@@ -23,19 +23,19 @@ public class MyLoginBean {
 
     public static class DataBean {
 
-        private String id;
+        private int id;
         private String tel;
         private String nick;
-        private String sid;
+        private int sid;
         private String headpic;
         private String date_reg;
         private String date_lastaction;
 
-        public String getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
 
@@ -55,11 +55,11 @@ public class MyLoginBean {
             this.nick = nick;
         }
 
-        public String getSid() {
+        public int getSid() {
             return sid;
         }
 
-        public void setSid(String sid) {
+        public void setSid(int sid) {
             this.sid = sid;
         }
 

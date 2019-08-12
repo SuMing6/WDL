@@ -18,9 +18,9 @@ import java.util.List;
 
 public class ShoppingCarAdapter extends RecyclerView.Adapter<ShoppingCarAdapter.holder> {
     private final Context context;
-    private final List<ShoppingCarBean.DataBean> dataBeans;
+    private final ShoppingCarBean dataBeans;
 
-    public ShoppingCarAdapter(Context context, List<ShoppingCarBean.DataBean> dataBeans) {
+    public ShoppingCarAdapter(Context context, ShoppingCarBean dataBeans) {
         this.context = context ;
         this.dataBeans = dataBeans ;
     }
@@ -35,15 +35,15 @@ public class ShoppingCarAdapter extends RecyclerView.Adapter<ShoppingCarAdapter.
     @Override
     public void onBindViewHolder(@NonNull ShoppingCarAdapter.holder holder, int position) {
 
-        holder.name.setText(dataBeans.get(position).getChanpin().getTitle());
-        holder.guige.setText(dataBeans.get(position).getGuige().getName());
-        holder.price.setText(dataBeans.get(position).getPrice());
-        holder.simpleDraweeView.setImageURI(dataBeans.get(position).getChanpin().getPic());
+        //holder.name.setText(dataBeans.get(position).getChanpin().getTitle());
+        holder.guige.setText(dataBeans.getData().get(position).getGuige().getName());
+        holder.price.setText(dataBeans.getData().get(position).getPrice());
+        holder.simpleDraweeView.setImageURI(dataBeans.getData().get(position).getChanpin().getPic());
     }
 
     @Override
     public int getItemCount() {
-        return dataBeans.size();
+        return dataBeans.getData().size();
     }
 
     class holder extends RecyclerView.ViewHolder {

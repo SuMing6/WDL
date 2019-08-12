@@ -2,6 +2,8 @@ package com.wdl.myapplication.util;
 
 import android.util.Log;
 
+import com.wdl.myapplication.view.LogingActivity;
+
 import java.io.IOException;
 import java.util.function.Consumer;
 
@@ -20,12 +22,15 @@ public class RetrofitUtil {
     OkHttpClient okHttpClient ;
     static RetrofitUtil retrofitUtil ;
     private Retrofit retrofit;
+    public static int sid = 0;
+
 
     private RetrofitUtil(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
                 Log.e("数据", message);
+                //Log.e("获取登录状态", String.valueOf(LogingActivity.sid));
             }
         }).setLevel(HttpLoggingInterceptor.Level.BODY);
         okHttpClient = new OkHttpClient.Builder()
@@ -34,6 +39,7 @@ public class RetrofitUtil {
                     public Response intercept(Chain chain) throws IOException {
                         Request request = chain.request()
                                 .newBuilder()
+                                .addHeader("sid", String.valueOf(LogingActivity.sid))
                                 .build();
                         return chain.proceed(request);
                     }
