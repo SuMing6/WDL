@@ -205,7 +205,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
         my_sh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                
             }
         });
         my_pj.setOnClickListener(new View.OnClickListener() {
@@ -217,7 +217,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
         my_th.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
         });
 
