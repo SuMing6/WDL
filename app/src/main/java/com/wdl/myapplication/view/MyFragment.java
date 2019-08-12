@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,17 +31,19 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
 
     TextView my_shezhi ;
     RelativeLayout my_dizhi , my_shoucang , my_haoyou , my_youhui , my_qianbao , my_login ;
+    LinearLayout my_fk , my_fh , my_sh , my_pj , my_th ;
     private ImageView imageView ;
     private TextView text_name ;
     private String tel;
     private String headpic;
     MyContract.MyPresenter myPresenter = new MyPresenter<>(this);
+    private View view;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main_my, null);
+        view = inflater.inflate(R.layout.fragment_main_my, null);
         my_dizhi = view.findViewById(R.id.my_dizhi);
         my_shoucang = view.findViewById(R.id.my_shoucang);
         my_haoyou = view.findViewById(R.id.my_haoyou);
@@ -49,6 +52,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
         imageView = view.findViewById(R.id.my_touxiang);
         text_name = view.findViewById(R.id.my_touname);
         my_shezhi = view.findViewById(R.id.my_shezhi);
+
         return view;
     }
 
@@ -62,6 +66,9 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             Intent intent = new Intent(getContext(),LogingActivity.class);
             startActivity(intent);
         }
+        //我的订单
+        MyOrder();
+        //修改头像
         imageViewUpdata();
         //钱包
         my_qianbao();
@@ -76,6 +83,8 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
         //地址
         my_dizhi();
     }
+
+
 
     private void imageViewUpdata() {
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -172,20 +181,46 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             text_name.setText(getUserBean.getData().getTel());
 
     }
-   /* @Override
-    public void onResume() {
-        super.onResume();
 
-        if (!isFirstLoading) {
-            //如果不是第一次加载，刷新数据
-        }
+    private void MyOrder() {
 
-        isFirstLoading = false;
-    }*/
+        my_fk = view.findViewById(R.id.my_fk);
+        my_fh = view.findViewById(R.id.my_fh);
+        my_sh = view.findViewById(R.id.my_sh);
+        my_pj = view.findViewById(R.id.my_pj);
+        my_th = view.findViewById(R.id.my_th);
 
-    @Override
-    public void onResume() {
-        super.onResume();
+        my_fk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        my_fh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        my_sh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        my_pj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        my_th.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
 
     }
 }
