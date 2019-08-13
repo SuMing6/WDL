@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SetUpActivity"></activity>
+        <activity android:name=".activity.ShouSuoActivity"></activity>
+        <activity android:name=".activity.SetUpActivity" />
         <activity android:name=".activity.OrderAllActivity" />
         <activity android:name=".view.MyAddDiZhiActivity" />
         <activity android:name=".view.MyDiZhiActivity" />
@@ -27,8 +28,7 @@
         <activity android:name=".view.MyHaoYouActivity" />
         <activity android:name=".view.MyYouHuiActivity" />
         <activity android:name=".view.MyMoneyActivity" />
-        <activity
-            android:name=".view.LogingActivity">
+        <activity android:name=".view.LogingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

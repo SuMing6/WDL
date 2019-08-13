@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.wdl.myapplication.R;
+import com.wdl.myapplication.activity.ShouSuoActivity;
 import com.wdl.myapplication.adapter.HomePageHotAdapter;
 import com.wdl.myapplication.bean.HomePageHotBean;
 import com.wdl.myapplication.commonality.SpacingItemDecoration;
@@ -162,6 +163,9 @@ public class HomePageFragment extends Fragment implements MyContract.MyView.Home
                 editText.setFocusable(true);
                 editText.setFocusableInTouchMode(true);
                 editText.requestFocus();
+
+                Intent intent = new Intent(getContext(), ShouSuoActivity.class);
+                startActivity(intent);
             }
         });
 
