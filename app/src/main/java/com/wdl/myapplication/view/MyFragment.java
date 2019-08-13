@@ -17,10 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wdl.myapplication.R;
+import com.wdl.myapplication.activity.OrderAllActivity;
+import com.wdl.myapplication.activity.SetUpActivity;
 import com.wdl.myapplication.bean.GetUserBean;
 import com.wdl.myapplication.contract.MyContract;
 import com.wdl.myapplication.greendao.DaoBean;/*
 import com.wdl.myapplication.greendao.DaoBeanDao;*/
+import com.wdl.myapplication.oderall.OderAllFKFragment;
 import com.wdl.myapplication.presenter.MyPresenter;
 import com.wdl.myapplication.util.App;
 
@@ -29,7 +32,7 @@ import java.util.List;
 
 public class MyFragment extends Fragment implements MyContract.MyView.MyFragment {
 
-    TextView my_shezhi ;
+    TextView my_shezhi , my_checkAll;
     RelativeLayout my_dizhi , my_shoucang , my_haoyou , my_youhui , my_qianbao , my_login ;
     LinearLayout my_fk , my_fh , my_sh , my_pj , my_th ;
     private ImageView imageView ;
@@ -140,8 +143,8 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             @Override
             public void onClick(View view) {
                 if (LogingActivity.myLoginBean.getData()!= null){
-                    /*Intent intent = new Intent();
-                    startActivity(intent);*/
+                    Intent intent = new Intent(getContext(), SetUpActivity.class);
+                    startActivity(intent);
                 }else {
                     Toast.makeText(getContext(),"请先登录",Toast.LENGTH_SHORT).show();
                 }
@@ -189,35 +192,49 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
         my_sh = view.findViewById(R.id.my_sh);
         my_pj = view.findViewById(R.id.my_pj);
         my_th = view.findViewById(R.id.my_th);
+        my_checkAll = view.findViewById(R.id.my_checkAll);
+
+        my_checkAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                startActivity(intent);
+            }
+        });
 
         my_fk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                startActivity(intent);
             }
         });
         my_fh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                startActivity(intent);
             }
         });
         my_sh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                startActivity(intent);
             }
         });
         my_pj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                startActivity(intent);
             }
         });
         my_th.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                startActivity(intent);
             }
         });
 

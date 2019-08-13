@@ -39,7 +39,7 @@ public class RetrofitUtil {
                     public Response intercept(Chain chain) throws IOException {
                         Request request = chain.request()
                                 .newBuilder()
-                                .addHeader("sid", String.valueOf(LogingActivity.sid))
+                                .addHeader("id", String.valueOf(LogingActivity.sid))
                                 .build();
                         return chain.proceed(request);
                     }
