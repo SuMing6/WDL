@@ -28,11 +28,14 @@ public interface MyContract {
         void PMyLoginYzm(String phone);
         void PMyLogin(String phone,String code);
         void PMyUser();
+        void PMySetUpUser();
 
 
 
         void PHomePageGoodsInfoComment(int gid,int start, int num);
         void PClassifyFragment(int fid);
+
+        void PMyOderFk(int type);
 
 
     }
@@ -73,6 +76,12 @@ public interface MyContract {
         }
         interface TalkFragment{
             void ShowTalk(Object o);
+        }
+        interface SetUpActivity{
+            void ShowUser(Object o);
+        }
+        interface OderAllFKFragment{
+            void ShowMyOderFk(Object o);
         }
 
     }

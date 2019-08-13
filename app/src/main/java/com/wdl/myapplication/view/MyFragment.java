@@ -198,6 +198,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                intent.putExtra("page",0+"");
                 startActivity(intent);
             }
         });
@@ -206,6 +207,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                intent.putExtra("page",0+"");
                 startActivity(intent);
             }
         });
@@ -213,6 +215,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                intent.putExtra("page",1+"");
                 startActivity(intent);
             }
         });
@@ -220,6 +223,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                intent.putExtra("page",2+"");
                 startActivity(intent);
             }
         });
@@ -227,6 +231,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                intent.putExtra("page",3+"");
                 startActivity(intent);
             }
         });
@@ -234,6 +239,7 @@ public class MyFragment extends Fragment implements MyContract.MyView.MyFragment
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), OrderAllActivity.class);
+                intent.putExtra("page",4+"");
                 startActivity(intent);
             }
         });

@@ -12,6 +12,7 @@ import com.wdl.myapplication.bean.HomePageHotBean;
 import com.wdl.myapplication.bean.HomePageIntegralBean;
 import com.wdl.myapplication.bean.MyLoginBean;
 import com.wdl.myapplication.bean.MyLoginYzmBean;
+import com.wdl.myapplication.bean.MyOrderFkBean;
 import com.wdl.myapplication.bean.ShoppingCarBean;
 import com.wdl.myapplication.bean.TalkTmBean;
 import com.wdl.myapplication.contract.MyContract;
@@ -217,6 +218,20 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
         });
     }
 
+    @Override
+    public void PMySetUpUser() {
+        final MyContract.MyView.SetUpActivity setUpActivity = (MyContract.MyView.SetUpActivity) t;
+        myModel.doGet(Port.My_User, GetUserBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                setUpActivity.ShowUser(o);
+            }
+            @Override
+            public void onError(Object o) {
+            }
+        });
+    }
+
     //详情页评论
     @Override
     public void PHomePageGoodsInfoComment(int gid, int start, int num) {
@@ -244,6 +259,23 @@ public class MyPresenter<T> implements MyContract.MyPresenter {
             @Override
             public void success(Object o) {
                 classifyFragment.ShowClassifyFragment(o);
+            }
+
+            @Override
+            public void onError(Object o) {
+
+            }
+        });
+    }
+
+    @Override
+    public void PMyOderFk(int type) {
+        final MyContract.MyView.OderAllFKFragment oderAllFKFragment = (MyContract.MyView.OderAllFKFragment) t;
+        map.put("type", String.valueOf(type));
+        myModel.doGet(Port.My_Oder_Fk, MyOrderFkBean.class, map, new MyModel.MyCallBack() {
+            @Override
+            public void success(Object o) {
+                oderAllFKFragment.ShowMyOderFk(o);
             }
 
             @Override

@@ -63,10 +63,12 @@ public class OrderAllActivity extends AppCompatActivity {
         list_Title.add("待收货");
         list_Title.add("待评价");
         list_Title.add("退款退货");
-        /*String sID=getIntent().getStringExtra("page");
-        int id=Integer.parseInt(sID);*/
+        String sID=getIntent().getStringExtra("page");
+        int id=Integer.parseInt(sID);
+
         viewPager.setAdapter(new OrderAllPagerAdapter(getSupportFragmentManager(),OrderAllActivity.this,fragmentList,list_Title));
         tabLayout.setupWithViewPager(viewPager);//此方法就是让tablayout和ViewPager联动
+        viewPager.setCurrentItem(id);
 
     }
 

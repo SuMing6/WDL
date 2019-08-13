@@ -6,17 +6,22 @@ import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.wdl.myapplication.R;
+import com.wdl.myapplication.bean.GetUserBean;
+import com.wdl.myapplication.contract.MyContract;
+import com.wdl.myapplication.presenter.MyPresenter;
 import com.wdl.myapplication.view.LogingActivity;
 
-public class SetUpActivity extends AppCompatActivity {
+public class SetUpActivity extends AppCompatActivity implements MyContract.MyView.SetUpActivity {
 
-    TextView my_set_up_TuiChu ;
+    TextView my_set_up_TuiChu ,set_b_up_phone;
+    MyContract.MyPresenter myPresenter = new MyPresenter<>(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,19 @@ public class SetUpActivity extends AppCompatActivity {
             }
         });
 
+        myPresenter.PMySetUpUser();
+        setUser();
+    }
+
+    private void setUser() {
+
+    }
+
+    @Override
+    public void ShowUser(Object o) {
+        GetUserBean getUserBean = (GetUserBean) o;
+        //set_b_up_phone.setText(getUserBean.getData().getTel());
+        Log.e("设置",getUserBean.getMsg()+""+getUserBean.getCode());
 
     }
 
@@ -57,4 +75,6 @@ public class SetUpActivity extends AppCompatActivity {
             actionBar.hide();
         }
     }
+
+
 }

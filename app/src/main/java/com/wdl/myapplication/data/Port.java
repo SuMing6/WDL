@@ -18,6 +18,9 @@ public class Port {
     public static String My_Login="v1/login";
     public static String My_User="v1/getUser";
 
+
+    public static String My_Oder_Fk="v1/my_order";
+
     public static String Homepage_GoodsUrlInfocomment="home/get_shop_comment";
 
 }
