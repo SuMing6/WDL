@@ -38,6 +38,13 @@ public class ShouSuoActivity extends AppCompatActivity {
         flowLayoute = findViewById(R.id.flowe);
         shou_suo_go = findViewById(R.id.shou_suo_go);
         shou_suo_edtext = findViewById(R.id.shou_suo_edtext);
+
+        flowLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         shou_suo_go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
