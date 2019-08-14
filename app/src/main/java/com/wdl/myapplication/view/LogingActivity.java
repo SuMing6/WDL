@@ -1,5 +1,9 @@
 package com.wdl.myapplication.view;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -17,14 +21,10 @@ import android.widget.Toast;
 import com.umeng.message.PushAgent;
 import com.wdl.myapplication.R;
 import com.wdl.myapplication.activity.MainActivity;
-import com.wdl.myapplication.bean.ClassifyBean;
 import com.wdl.myapplication.bean.MyLoginBean;
 import com.wdl.myapplication.bean.MyLoginYzmBean;
 import com.wdl.myapplication.contract.MyContract;
-import com.wdl.myapplication.greendao.DaoBean;
 import com.wdl.myapplication.presenter.MyPresenter;
-import com.wdl.myapplication.util.App;
-import com.wdl.myapplication.util.RetrofitUtil;
 
 public class LogingActivity extends AppCompatActivity implements MyContract.MyView.LogingActivity {
 
@@ -35,6 +35,8 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
     Intent intent = new Intent();
     MyContract.MyPresenter myPresenter = new MyPresenter<>(this);
     public static int sid;
+    private Notification notification = new Notification();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +59,35 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
 
         register();
 
-
+        kj();
 
     }
 
+    private void kj() {
+       // 获取系统 通知管理 服务
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        // 构建 Notification
+
+        Notification.Builder builder = new Notification.Builder(this);
+        builder.setContentTitle("小熊商城")
+                .setSmallIcon(R.drawable.my_touxiang)
+                .setContentText("点击进入商城")
+                .setOngoing(true);
+
+        // 兼容  API 26，Android 8.0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            // 第三个参数表示通知的重要程度，默认则只在通知栏闪烁一下
+            NotificationChannel notificationChannel = new NotificationChannel("AppTestNotificationId", "AppTestNotificationName", NotificationManager.IMPORTANCE_DEFAULT);
+            // 注册通道，注册后除非卸载再安装否则不改变
+            notificationManager.createNotificationChannel(notificationChannel);
+            builder.setChannelId("AppTestNotificationId");
+        }
+        // 发出通知
+        notificationManager.notify(1, builder.build());
+    }
+
     private void register() {
+
         my_login_reg = findViewById(R.id.my_login_reg);
         my_login_reg.setOnClickListener(new View.OnClickListener() {
             @Override
