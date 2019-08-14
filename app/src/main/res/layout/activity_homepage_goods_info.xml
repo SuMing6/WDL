@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F5F5F9"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/dp_40">
+            android:orientation="vertical">
 
             <com.youth.banner.Banner
                 android:id="@+id/Homepage_goods_info_Banner"
@@ -245,12 +244,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_weight="6">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="客服"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

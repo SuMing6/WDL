@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.message.PushAgent;
 import com.wdl.myapplication.R;
 import com.wdl.myapplication.activity.MainActivity;
 import com.wdl.myapplication.bean.ClassifyBean;
@@ -40,6 +41,8 @@ public class LogingActivity extends AppCompatActivity implements MyContract.MyVi
         super.onCreate(savedInstanceState);
         CQS();
         setContentView(R.layout.activity_loging);
+
+        PushAgent.getInstance(this).onAppStart();
         //EventBus.getDefault().register(LogingActivity.this);
         ed_phone = findViewById(R.id.loging_phone);
         loging_getyzm = findViewById(R.id.loging_getyzm);

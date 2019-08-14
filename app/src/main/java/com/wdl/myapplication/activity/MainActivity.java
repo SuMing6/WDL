@@ -7,12 +7,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
 import com.wdl.myapplication.R;
 import com.wdl.myapplication.view.ClassifyFragment;
 import com.wdl.myapplication.view.HomePageFragment;
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+
+
         RadioGroup radioGroup = findViewById(R.id.main_RadioGroup);
 
         homePageFragment = new HomePageFragment();
@@ -84,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         manager.beginTransaction()
                 .add(R.id.main_FrameLayout, homePageFragment)
                 .add(R.id.main_FrameLayout, classifyFragment)
-                .add(R.id.main_FrameLayout, talkFragment)
+                //.add(R.id.main_FrameLayout, talkFragment)
                 .add(R.id.main_FrameLayout, shoppingFragment)
                 .add(R.id.main_FrameLayout, myFragment)
                 .show(homePageFragment)
@@ -113,13 +119,13 @@ public class MainActivity extends AppCompatActivity {
                                 .hide(shoppingFragment)
                                 .hide(myFragment);
                         break;
-                    case R.id.main_button3 :
+                    /*case R.id.main_button3 :
                         transaction.show(talkFragment)
                                 .hide(homePageFragment)
                                 .hide(classifyFragment)
                                 .hide(shoppingFragment)
                                 .hide(myFragment);
-                        break;
+                        break;*/
                     case R.id.main_button4 :
                         transaction.show(shoppingFragment)
                                 .hide(homePageFragment)
